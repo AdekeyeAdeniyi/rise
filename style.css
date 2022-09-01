@@ -247,7 +247,7 @@ body {
 
 .works__lists .item .step{
     display: none;
-    text-align: right;
+    align-self: flex-end;
     font-size: 2.1rem;
     text-transform: uppercase;
 }
@@ -261,6 +261,7 @@ body {
 .works__lists .item .para{
     font-size: 1.4rem;
     line-height: 1.5;
+    text-align: center;
 }
 
 .works__lists .item .btn{
@@ -297,6 +298,7 @@ body {
 
     .works__lists .item .para{
         font-size: 1.8rem;
+        text-align: left;
     }
 }
 
@@ -385,9 +387,16 @@ body {
     height: 0;
     display: none;
 }
+
 .questions .questions__description .questions__sm .answer.active{
     height: 100%;
     display: block;
+}
+
+@media only screen and (min-width: 441px){
+    .questions .questions__description .questions__sm .answer{
+        width: 50ch;
+    }
 }
 
 @media only screen and (min-width: 992px){
