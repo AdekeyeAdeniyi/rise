@@ -23,7 +23,6 @@ html {
 
 body {
     text-rendering: optimizeLegibility;
-    background-color: var(--primary-color);
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
@@ -47,7 +46,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    z-index: 1;
+    z-index: 8;
     background-color: var(--black-color);
 }
 
@@ -142,6 +141,9 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
 }
 
 .herobox__description {
@@ -150,6 +152,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 23px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .herobox__description .title{
@@ -171,17 +175,37 @@ body {
 }
 
 .herobox__image {
-    flex-basis: 50%;
+    width: 100%;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.herobox__image svg{
+    position: absolute;
+    top: 110px;
+    left: 0;
+    z-index: 1;
 }
 
 .herobox__image img{
+    position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 2;
+    top: 34px;
+    overflow: hidden;
 }
 
 /* MEDIA QURIES */
+@media only screen and (min-width: 768px){
+    .herobox .container .herobox__description{
+        padding: 0;
+        width: 720px;
+        margin: 0 auto;
+    }
+}
 @media only screen and (min-width: 992px){
     .herobox {
         height: calc(100vh - 83px);
@@ -190,6 +214,8 @@ body {
 
     .herobox .container {
         flex-direction: row;
+        width: 960px;
+        margin: 0 auto;
     }
 
     .herobox__description {
@@ -210,6 +236,23 @@ body {
 
     .herobox__description .btn{
         display: inline-flex;
+    }
+
+    .herobox__image {
+        width: 50%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .herobox__image svg{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .herobox .container {
+        width: 1140px;
     }
 }
 
@@ -306,6 +349,17 @@ body {
 .questions {
     position: relative;
     width: 100%;
+    background-color: var(--primary-color);
+}
+
+.questions .curved{
+    display: none;
+}
+
+.questions .curved-sm{
+    position: absolute;
+    display: block;
+    margin-top: 42px;
 }
 
 .questions .container{
@@ -400,6 +454,17 @@ body {
 }
 
 @media only screen and (min-width: 992px){
+    .questions .curved{
+        display: block;
+        position: absolute;
+        top: 625px;
+        left: 0;
+    }
+
+    .questions .curved-sm{
+        display: none;
+    }
+    
     .questions .container{
         flex-direction: row;
     }
@@ -436,6 +501,15 @@ body {
 .cta {
     background-color: var(--black-color);
     color: var(--white-color);
+    height: 60vh;
+}
+
+.cta .container{
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .cta .title{
@@ -460,6 +534,11 @@ body {
 }
 
 @media only screen and (min-width: 992px){
+    .cta {
+        height: 100%;
+        padding: 140px 0 100px 0;
+    }
+
     .cta .title{
         text-align: left;
     }
@@ -480,6 +559,18 @@ body {
     position: relative;
     width: 100%;
     color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.footer .curved{
+    display: none;
+}
+
+.footer .curved-sm{
+    position: absolute;
+    display: block;
+    bottom: 280px;
+    left: 0;
 }
 
 .footer .container{
@@ -547,7 +638,25 @@ body {
     display: none;
 }
 
+@media only screen and (min-width: 767px){
+    .footer .curved-sm{
+        bottom: 270px;
+    }
+}
+
+
 @media only screen and (min-width: 992px){
+    .footer .curved{
+        display: block;
+        position: absolute;
+        bottom: 420px;
+        left: 0;
+    }
+
+    .footer .curved-sm{
+        display: none;
+    }
+
     .footer .container{
         justify-content: space-between;
         gap: 0;
